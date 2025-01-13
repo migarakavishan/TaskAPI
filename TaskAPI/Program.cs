@@ -1,4 +1,6 @@
 
+using TaskAPI.Services;
+
 namespace TaskAPI
 {
     public class Program
@@ -13,6 +15,8 @@ namespace TaskAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ITodoRepository, TodoService>();
 
             var app = builder.Build();
 

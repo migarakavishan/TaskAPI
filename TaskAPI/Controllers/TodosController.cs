@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaskAPI.Models;
+
 using TaskAPI.Services;
 
 namespace TaskAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TasksController : ControllerBase
+    public class TodosController : ControllerBase
     {
-        private TodoService _todoService;
-        public TasksController()
+        private ITodoRepository _todoService;
+        public TodosController(ITodoRepository repository)
         {
-            _todoService = new TodoService();
+            _todoService = repository;
         }
 
         [HttpGet("{id?}")]
